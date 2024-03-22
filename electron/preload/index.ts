@@ -1,4 +1,5 @@
 import { ipcRenderer, contextBridge } from 'electron'
+// import { exec } from 'node:child_process'
 
 // --------- Expose some API to the Renderer process ---------
 contextBridge.exposeInMainWorld('ipcRenderer', {
@@ -22,6 +23,10 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
   // You can expose other APTs you need here.
   // ...
 })
+
+// contextBridge.exposeInMainWorld('tools', {
+//   exec,
+// })
 
 // --------- Preload scripts loading ---------
 function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
